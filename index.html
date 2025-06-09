@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>itens aleatórios - T20</title>
+    <link rel="stylesheet" href="estilo.css">    
+</head>
+<body>
+    <div id="cabecalho">
+    <h1>TORMENTA 20</h1>
+    <h2>ITENS ALEATÓRIOS</h2>
+    <h3 id="credito">feito por kanerito13 (material de fã para fã, direitos de JamboEditora)</h3>
+    </div>
+
+    <div id="popup" class="modal">
+    <div class="modal-conteudo">
+      <span onclick="fecharPopup()"></span>
+      <br>
+      <br>
+      <p id="mensagemPopup" ></p>
+    </div>
+    </div>
+
+    <div id="dicas">
+        <h2>Como usar o site :</h2>
+        <ol>
+            <li>Utilize a tabela de tesouro por nivel de desafio do livro base normalmente, se quiser apenas sortear um item por outro motivo pule essa etapa. </li>
+            <br>
+            <li>Selecione a categoria do item usando o botão "CATEGORIA DE ITEM" abaixo (se tirar "acessório" como categoria e estiver rolando tesouro não mágico use o botão novamente).</li>
+            <br>
+            <li>Se tirar "item geral" como categoria, use o botão "CATEGORIA DE ITEM GERAL" para definir o seu tipo.</li>
+            <br>
+            <li>Após definir a categoria, utilize os botões das sessões abaixo para sortear um item (e seus aprimoramentos e encantos se houver).</li>
+            <br>
+            <li>Se um aprimoramento ou encanto de um item requer um pré-requisito ou outra especificação, sorteie novamente.</li>
+            <br>
+            <li>É possivel tirar o resultado "material especial" ao sortear um item aprimorado, se acontecer use o botão "MATERIAL ESPECIAL".</li>
+            <br>
+            <li>É possivel tirar o resultado "item específico" ao sortear um item encantado, se acontecer use a sessão de itens específicos.</li>
+            <br>
+            <li>As categorias de itens alquímicos (preparados, catalisadores e venenos) estão todas no mesmo botão, se quiser uma categoria específica sorteie um item até receber o tipo procurado.</li>
+            <br>
+            <li>Os itens de livros que não são o livro base (ameaças, deuses e heróis de arton) possuem uma indicação de qual livro pertencem.</li>
+            <br>
+            <li>Se o item sorteado não fizer sentido com o ambiente da sua aventura (como um prato especial numa caverna ou um equipamento de aventura que só existe em uma região específica), pode sortea-lo novamente se quiser.</li>
+        </ol>
+        <br>
+        <button class="dc" onclick="CAT()"><b>CATEGORIA<br>DE ITEM</b></button>
+        <button class="dc" onclick="CAT_ITG()"><b>CATEGORIA DE<br>ITEM GERAL</b></button>
+    </div>
+
+    <div id="combate" class="categoria">
+        <h2>Itens de combate:</h2>
+        <button onclick="ARM()"><b>ARMA</b></button>
+        <button onclick="ESC()"><b>ESCUDO</b></button>
+        <br>
+        <button onclick="AMD()"><b>ARMADURA</b></button>
+        <button onclick="ESO()"><b>ESOTÉRICO</b></button>
+    </div>
+    
+    <div id="melhoria" class="categoria">
+        <h2>Itens aprimorados:</h2>
+        <button onclick="ARMML()"><b>MELHORIA<br>(ARMAS)</b></button>
+        <button onclick="ESCML()"><b>MELHORIA<br>(ESCUDOS)</b></button>
+        <button onclick="AMDML()"><b>MELHORIA<br>(ARMADURAS)</b></button>
+        <div class="alinhar">
+        <button onclick="ESOML()"><b>MELHORIA<br>(ESOTÉRICOS)</b></button>
+        <button onclick="FVML()"><b>MELHORIA<br>(FERRAMENTA E VESTUÁRIO)</b></button>
+        <button onclick="ME()"><b>MATERIAL<br>ESPECIAL</b></button>
+        </div>
+    </div>
+
+    <div id="encanto" class="categoria">
+        <h2>Itens encantados:</h2>
+        <button onclick="ARMEC()"><b>ENCANTO<br>(ARMAS)</b></button>
+        <button onclick="ESCEC()"><b>ENCANTO<br>(ESCUDOS)</b></button>
+        <button onclick="AMDEC()"><b>ENCANTO<br>(ARMADURAS)</b></button>
+        <br>
+        <button onclick="ESOEC()"><b>ENCANTO<br>(ESOTÉRICO)</b></button>
+        <button onclick="ACSEC()"><b>ENCANTO<br>(ACESSÓRIO)</b></button>
+    </div>
+
+    <div id="maldiçao" class="categoria">
+        <h2>Itens amaldiçoados</h2>
+        <div class="alinhar2">
+        <button onclick="ARMMD()"><b>MALDIÇÃO<br>(ARMAS)</b></button>
+        <button onclick="RESTMD()"><b>MALDIÇÃO (ESCUDOS, ARMADURAS E ACESSÓRIOS)</b></button>
+        </div>
+
+    </div>
+
+    <div id="especifico" class="categoria">
+        <h2>Itens específicos:</h2>
+        <button onclick="ARMSP()"><b>ARMA<br>ESPECÍFICA</b></button>
+        <button onclick="ESCSP()"><b>ESCUDO<br>ESPECÍFICO</b></button>
+        <br>
+        <button onclick="AMDSP()"><b>ARMADURA<br>ESPECÍFICA</b></button>
+        <button onclick="ESOSP()"><b>ESOTÉRICO<br>ESPECÍFICO</b></button>
+        <button onclick="ACSMN()"><b>ACESSÓRIO<br>(MENOR)</b></button>
+        <br>
+        <button onclick="ACSMED()"><b>ACESSÓRIO<br>(MÉDIO)</b></button>
+        <button onclick="ACSMA()"><b>ACESSÓRIO<br>(MAIOR)</b></button>
+    </div>
+
+    <div id="geral" class="categoria">
+        <h2>Itens gerais:</h2>
+        <div class="alinhar2">
+        <button onclick="EAV()"><b>EQUIPAMENTO DE<br>AVENTURA</b></button>
+        <button onclick="FER()"><b>FERRAMENTA</b></button>
+        </div>
+        <div class="alinhar">
+        <button onclick="ITM()"><b>INSTRUMENTO<br>MUSICAL</b></button>
+        <button onclick="VEST()"><b>VESTUÁRIO</b></button>
+        <button onclick="ALQ()"><b>ALQUÍMICO</b></button>
+        </div>
+        <div class="alinhar2">
+        <button onclick="PRAT()"><b>PRATO<br>ESPECIAL</b></button>
+        <button onclick="BEBI()"><b>BEBIDA</b></button>
+        </div>
+    </div>
+
+    <div> <!-- categoria -->
+
+    <table id="tb-categoria">
+        <tr><td> item geral </td></tr>
+        <tr><td> arma </td></tr>
+        <tr><td> esotérico </td></tr>
+        <tr><td> escudo </td></tr>
+        <tr><td> armadura </td></tr>
+        <tr><td> acessório </td></tr>
+    </table>
+    </div>
+
+    <div> <!-- categoria item geral -->
+
+    <table id="tb-categoria-geral">
+        <tr><td> equipamento de aventura </td></tr>
+        <tr><td> ferramenta </td></tr>
+        <tr><td> instrumento musical </td></tr>
+        <tr><td> vestuário </td></tr>
+        <tr><td> alquímico </td></tr>
+        <tr><td> prato especial </td></tr>
+        <tr><td> bebida </td></tr>
+    </table>
+    </div>
+
+    <div> <!-- material especial -->
+
+    <table id="tb-material">
+        <tr><td> Aço-rubi </td></tr>
+        <tr><td> Adamante </td></tr>
+        <tr><td> Gelo eterno </td></tr>
+        <tr><td> Madeira Tollon </td></tr>
+        <tr><td> Matéria vermelha </td></tr>
+        <tr><td> Mitral </td></tr>
+        <tr><td> Casco de monstro (ameaças) </td></tr>
+        <tr><td> Couraça de Kaiju (ameaças) </td></tr>
+        <tr><td> Couro de bulette (ameaças) </td></tr>
+        <tr><td> Cristal de sol (ameaças) </td></tr>
+        <tr><td> Lanajuste (ameaças) </td></tr>
+        <tr><td> Pena de kraken (ameaças) </td></tr>
+        <tr><td> Prata (ameaças) </td></tr>
+    </table>
+    </div>
+
+    <div> <!-- combate -->
+
+    <table id="tb-arma">
+        <tr><td> Adaga </td></tr>
+        <tr><td> Espada curta </td></tr>
+        <tr><td> Foice </td></tr>
+        <tr><td> Clava </td></tr>
+        <tr><td> Lança </td></tr>
+        <tr><td> Maça </td></tr>
+        <tr><td> Bordão </td></tr>
+        <tr><td> Pique </td></tr>
+        <tr><td> Tacape </td></tr>
+        <tr><td> Azagaia </td></tr>
+        <tr><td> Besta leve </td></tr>
+        <tr><td> Funda </td></tr>
+        <tr><td> Arco curto </td></tr>
+        <tr><td> Machadinha </td></tr>
+        <tr><td> Cimitarra </td></tr>
+        <tr><td> Espada longa </td></tr>
+        <tr><td> Florete </td></tr>
+        <tr><td> Machado de batalha </td></tr>
+        <tr><td> Mangual </td></tr>
+        <tr><td> Martelo de guerra </td></tr>
+        <tr><td> Picareta </td></tr>
+        <tr><td> Tridente </td></tr>
+        <tr><td> Alabarda </td></tr>
+        <tr><td> Alfange </td></tr>
+        <tr><td> Gadanho </td></tr>
+        <tr><td> Lança montada </td></tr>
+        <tr><td> Machado de guerra </td></tr>
+        <tr><td> Marreta </td></tr>
+        <tr><td> Montante </td></tr>
+        <tr><td> Arco longo </td></tr>
+        <tr><td> Besta pesada </td></tr>
+        <tr><td> Chicote </td></tr>
+        <tr><td> Espada bastarda  </td></tr>
+        <tr><td> Katana </td></tr>
+        <tr><td> Machado anão </td></tr>
+        <tr><td> Corrente de espinhos </td></tr>
+        <tr><td> Machado táurico </td></tr>
+        <tr><td> Rede </td></tr>
+        <tr><td> Pistola </td></tr>
+        <tr><td> Mosquete </td></tr>
+        <tr><td> Manopla </td></tr>
+        <tr><td> Porrete (ameaças)</td></tr>
+        <tr><td> Zarabatana (ameaças)</td></tr>
+        <tr><td> Neko-te (ameaças)</td></tr>
+        <tr><td> Gládio (ameaças)</td></tr>
+        <tr><td> Tetsubo (ameaças)</td></tr>
+        <tr><td> Traque (ameaças)</td></tr>
+        <tr><td> Arcabuz (ameaças)</td></tr>
+        <tr><td> Bacamarte (ameaças)</td></tr>
+        <tr><td> Açoite finntroll (ameaças)</td></tr>
+        <tr><td> Espada vespa (ameaças)</td></tr>
+        <tr><td> Pistola-punhal (ameaças)</td></tr>
+        <tr><td> Mordida do diabo (ameaças)</td></tr>
+        <tr><td> Presa de serpente (ameaças)</td></tr>
+        <tr><td> Lança de fogo (ameaças)</td></tr>
+        <tr><td> Shuriken (ameaças)</td></tr>
+        <tr><td> Arpão (ameaças)</td></tr>
+        <tr><td> Bastão lúdico (heróis)</td></tr>
+        <tr><td> Besta de mão (heróis)</td></tr>
+        <tr><td> Adaga oposta(heróis)</td></tr>
+        <tr><td> Agulha de Ahlen (heróis)</td></tr>
+        <tr><td> Cinquedea (heróis)</td></tr>
+        <tr><td> Dirk (heróis)</td></tr>
+        <tr><td> Martelo leve (heróis)</td></tr>
+        <tr><td> Espada larga (heróis)</td></tr>
+        <tr><td> Espadim (heróis)</td></tr>
+        <tr><td> Maça-estrela (heróis)</td></tr>
+        <tr><td> Serrilheira (heróis)</td></tr>
+        <tr><td> Bico de corvo (heróis)</td></tr>
+        <tr><td> Desmontador (heróis)</td></tr>
+        <tr><td> Espada de execução (heróis)</td></tr>
+        <tr><td> Lança de justa (heróis)</td></tr>
+        <tr><td> Malho (heróis)</td></tr>
+        <tr><td> Martelo longo (heróis)</td></tr>
+        <tr><td> Tan-korak (heróis)</td></tr>
+        <tr><td> Tai-tai (heróis)</td></tr>
+        <tr><td> Arco montado (heróis)</td></tr>
+        <tr><td> Besta dupla (heróis)</td></tr>
+        <tr><td> Kimbata (heróis)</td></tr>
+        <tr><td> Clava-grão (heróis)</td></tr>
+        <tr><td> Espada canora (heróis)</td></tr>
+        <tr><td> Espada-gadanho (heróis)</td></tr>
+        <tr><td> Khopesh (heróis)</td></tr>
+        <tr><td> Lança de falange (heróis)</td></tr>
+        <tr><td> Machado de haste (heróis)</td></tr>
+        <tr><td> Rapieira (heróis)</td></tr>
+        <tr><td> Marrão (heróis)</td></tr>
+        <tr><td> Montante cinético (heróis)</td></tr>
+        <tr><td> Boleadeira (heróis)</td></tr>
+        <tr><td> Chakram (heróis)</td></tr>
+        <tr><td> Arco de guerra (heróis)</td></tr>
+        <tr><td> Balestra (heróis)</td></tr>
+        <tr><td> Besta de repetição (heróis)</td></tr>
+        <tr><td> Garrucha (heróis)</td></tr>
+        <tr><td> Canhão portátil (heróis)</td></tr>
+        <tr><td> Sifão cáutisco (heróis)</td></tr>
+        
+    </table>
+
+    <table id="tb-escudo">
+        <tr><td> Escudo leve </td></tr>
+        <tr><td> Escudo pesado </td></tr>
+        <tr><td> Escudo de couro (ameaças) </td></tr>
+        <tr><td> Broquel (heróis) </td></tr>
+        <tr><td> Escudo de vime (heróis) </td></tr>
+        <tr><td> Escudo torre (heróis) </td></tr>
+        <tr><td> Sagna (heróis) </td></tr>
+    </table>
+
+    <table id="tb-armadura">
+        <tr><td> Armadura acolchoada </td></tr>
+        <tr><td> Armadura de couro </td></tr>
+        <tr><td> Couro batido </td></tr>
+        <tr><td> Gibão de peles </td></tr>
+        <tr><td> Couraça </td></tr>
+        <tr><td> Brunea </td></tr>
+        <tr><td> Cota de malha </td></tr>
+        <tr><td> Loriga segmentada </td></tr>
+        <tr><td> Meia armadura </td></tr>
+        <tr><td> Armadura completa </td></tr>
+        <tr><td> Armadura de ossos (ameaças) </td></tr>
+        <tr><td> Veste de teia de aranha (ameaças) </td></tr>
+        <tr><td> Armadura de quitina (ameaças) </td></tr>
+        <tr><td> Armadura sensual (heróis) </td></tr>
+        <tr><td> Armadura de folhas (heróis) </td></tr>
+        <tr><td> Armadura de engenhoqueiro goblin (heróis) </td></tr>
+        <tr><td> Cota de moedas (heróis) </td></tr>
+        <tr><td> Colete fora da lei (heróis) </td></tr>
+        <tr><td> Brigantina (heróis) </td></tr>
+        <tr><td> Armadura de chumbo (heróis) </td></tr>
+        <tr><td> Armadura de justa (heróis) </td></tr>
+        <tr><td> Armadura de hussardo alado (heróis) </td></tr>
+        <tr><td> Armadura de pedra (heróis) </td></tr>
+
+
+    </table>
+
+    <table id="tb-esoterico">
+        <tr><td> Bolsa de pó </td></tr>
+        <tr><td> Cajado arcano </td></tr>
+        <tr><td> Cetro elemental </td></tr>
+        <tr><td> Costela de lich </td></tr>
+        <tr><td> Dedo de ente </td></tr>
+        <tr><td> Luva de ferro </td></tr>
+        <tr><td> Medalhão de prata </td></tr>
+        <tr><td> Orbe cristalino </td></tr>
+        <tr><td> Tomo hermético </td></tr>
+        <tr><td> Varinha arcana </td></tr>
+        <tr><td> Ankh solar (ameaças) </td></tr>
+        <tr><td> Tomo de guerra (ameaças) </td></tr>
+        <tr><td> Tomo do rancor (ameaças) </td></tr>
+        <tr><td> Compasso místico (heróis) </td></tr>
+        <tr><td> Flauta convocadora (heróis) </td></tr>
+        <tr><td> Mandala onírica (heróis) </td></tr>
+        <tr><td> Varinha armamentista (heróis) </td></tr>
+        <tr><td> Afiador solar (deuses) </td></tr>
+        <tr><td> báculo de retribuição (deuses) </td></tr>
+        <tr><td> Contas de oração (deuses) </td></tr>
+        <tr><td> Estola (deuses) </td></tr>
+        <tr><td> Frasco purificador (deuses) </td></tr>
+        <tr><td> Medalhão afiado (deuses) </td></tr>
+        <tr><td> Ostensório santificado (deuses) </td></tr>
+        <tr><td> Rede de almas (deuses) </td></tr>
+        <tr><td> Turíbulo ungido (deuses) </td></tr>
+    </table>
+    </div>
+    
+    <div> <!-- aprimorados -->
+        
+    <table id="tb-arma(ML)">
+        <tr><td> Certeira </td></tr>
+        <tr><td> Pungente </td></tr>
+        <tr><td> Cruel </td></tr>
+        <tr><td> Atroz </td></tr>
+        <tr><td> Equilibrada </td></tr>
+        <tr><td> Harmonizada </td></tr>
+        <tr><td> Injeção alquímica </td></tr>
+        <tr><td> Maciça </td></tr>
+        <tr><td> Material especial </td></tr>
+        <tr><td> Mira telescópica </td></tr>
+        <tr><td> Precisa </td></tr>
+        <tr><td> Banhado a ouro </td></tr>
+        <tr><td> Cravejado de gemas </td></tr>
+        <tr><td> Discreto </td></tr>
+        <tr><td> Macabro </td></tr>
+        <tr><td> Penetrante (ameaças) </td></tr>
+        <tr><td> Farpada (heróis) </td></tr>
+        <tr><td> Guarda (heróis) </td></tr>
+        <tr><td> Pressurizada (heróis) </td></tr>
+        <tr><td> Canduíte (deuses) </td></tr>
+        <tr><td> Canônico (deuses) </td></tr>
+
+    </table>  
+    
+    <table id="tb-escudo(ML)">
+        <tr><td> Ajustada </td></tr>
+        <tr><td> Espinhoso </td></tr>
+        <tr><td> Material especial </td></tr>
+        <tr><td> Polida </td></tr>
+        <tr><td> Reforçada </td></tr>
+        <tr><td> Banhado a ouro </td></tr>
+        <tr><td> Cravejado de gemas </td></tr>
+        <tr><td> Discreto </td></tr>
+        <tr><td> Macabro </td></tr>
+        <tr><td> Balístico (heróis) </td></tr>
+        <tr><td> Diligente (deuses) </td></tr>
+        <tr><td> Inscrito (deuses) </td></tr>
+        <tr><td> Canônico (deuses) </td></tr>
+        <tr><td> Devotado (deuses) </td></tr>
+        
+    </table>
+
+    <table id="tb-armadura(ML)">
+        <tr><td> Ajustada </td></tr>
+        <tr><td> Sob medida </td></tr>
+        <tr><td> Delicada </td></tr>
+        <tr><td> Espinhosa </td></tr>
+        <tr><td> Material especial </td></tr>
+        <tr><td> Polida </td></tr>
+        <tr><td> Reforçada </td></tr>
+        <tr><td> Selada </td></tr>
+        <tr><td> Banhado a ouro </td></tr>
+        <tr><td> Cravejado de gemas </td></tr>
+        <tr><td> Discreto </td></tr>
+        <tr><td> Macabro </td></tr>
+        <tr><td> Injetora (heróis)</td></tr>
+        <tr><td> Prudente (heróis)</td></tr>
+        <tr><td> Deslumbrante (heróis)</td></tr>
+        <tr><td> Diligente (deuses) </td></tr>
+        <tr><td> Inscrito (deuses) </td></tr>
+        <tr><td> Canônico (deuses) </td></tr>
+        <tr><td> Devotado (deuses) </td></tr>
+    </table>
+
+    <table id="tb-esoterico(ML)">
+        <tr><td> Canalizador </td></tr>
+        <tr><td> Energético </td></tr>
+        <tr><td> Harmonizado </td></tr>
+        <tr><td> Material especial </td></tr>
+        <tr><td> Poderoso </td></tr>
+        <tr><td> Vigilante </td></tr>
+        <tr><td> Banhado a ouro </td></tr>
+        <tr><td> Cravejado de gemas </td></tr>
+        <tr><td> Discreto </td></tr>
+        <tr><td> Macabro </td></tr>
+        <tr><td> Potencializador (heróis) </td></tr>
+
+    </table>
+
+    <table id="tb-ferr-&-vest(ML)">
+        <tr><td> Aprimorado </td></tr>
+        <tr><td> Banhado a ouro </td></tr>
+        <tr><td> Cravejado de gemas </td></tr>
+        <tr><td> Discreto </td></tr>
+        <tr><td> Macabro </td></tr>
+        <tr><td> Multifuncional (ameaças) </td></tr>
+        <tr><td> Brasonado (heróis) </td></tr>
+        <tr><td> Usado (heróis) </td></tr>
+        <tr><td> Deslumbrante (heróis) </td></tr>
+        <tr><td> Diligente (deuses) </td></tr>
+        <tr><td> Inscrito (deuses) </td></tr>
+        <tr><td> Canônico (deuses) </td></tr>
+        <tr><td> Devotado (deuses) </td></tr>
+
+
+    </table>
+    </div>   
+
+    <div> <!-- encantados -->
+
+        <table id="tb-arma(EC)">
+        <tr><td> Ameaçadora </td></tr>
+        <tr><td> Anticriatura </td></tr>
+        <tr><td> Arremesso </td></tr>
+        <tr><td> Assasina </td></tr>
+        <tr><td> Caçadora </td></tr>
+        <tr><td> Congelante </td></tr>
+        <tr><td> Conjuradora </td></tr>
+        <tr><td> Corrosiva </td></tr>
+        <tr><td> Dançarina </td></tr>
+        <tr><td> Defensora </td></tr>
+        <tr><td> Destruidora </td></tr>
+        <tr><td> Dilacerante </td></tr>
+        <tr><td> Drenante </td></tr>
+        <tr><td> Elétrica </td></tr>
+        <tr><td> Energética </td></tr>
+        <tr><td> Excruciante </td></tr>
+        <tr><td> Flamejante </td></tr>
+        <tr><td> Formidavel </td></tr>
+        <tr><td> Lancinante </td></tr>
+        <tr><td> Magnífica </td></tr>
+        <tr><td> Piedosa </td></tr>
+        <tr><td> Profana </td></tr>
+        <tr><td> Sagrada </td></tr>
+        <tr><td> Sanguinária </td></tr>
+        <tr><td> Trovejante </td></tr>
+        <tr><td> Tumular </td></tr>
+        <tr><td> Veloz </td></tr>
+        <tr><td> Venenosa </td></tr>
+        <tr><td> Arma específica </td></tr>
+        <tr><td> Alvorada (heróis)</td></tr>
+        <tr><td> Anátema (heróis)</td></tr>
+        <tr><td> Brumosa (heróis)</td></tr>
+        <tr><td> Cantante (heróis)</td></tr>
+        <tr><td> Ciclônica (heróis)</td></tr>
+        <tr><td> Crescente (heróis)</td></tr>
+        <tr><td> Cristalina (heróis)</td></tr>
+        <tr><td> Cronal (heróis)</td></tr>
+        <tr><td> Cuidadora (heróis)</td></tr>
+        <tr><td> Espreitadora (heróis)</td></tr>
+        <tr><td> Frenética (heróis)</td></tr>
+        <tr><td> Gárgula (heróis)</td></tr>
+        <tr><td> Horrenda (heróis)</td></tr>
+        <tr><td> Infestada (heróis)</td></tr>
+        <tr><td> Manafága (heróis)</td></tr>
+        <tr><td> Indignada (heróis)</td></tr>
+        <tr><td> Rebote (heróis)</td></tr>
+        <tr><td> Reflexiva (heróis)</td></tr>
+        <tr><td> Ressonante (heróis)</td></tr>
+        <tr><td> Sepucral (heróis)</td></tr>
+        <tr><td> Sombria (heróis)</td></tr>
+        <tr><td> Vampírica (heróis)</td></tr>
+        
+        </table>  
+
+        <table id="tb-escudo(EC)">
+        <tr><td> Abascanto </td></tr>
+        <tr><td> Abençoado </td></tr>
+        <tr><td> Acrobático </td></tr>
+        <tr><td> Alado </td></tr>
+        <tr><td> Animado </td></tr>
+        <tr><td> Assustador </td></tr>
+        <tr><td> Cáutisca </td></tr>
+        <tr><td> Defensor </td></tr>
+        <tr><td> Escorregadio </td></tr>
+        <tr><td> Esmagador </td></tr>
+        <tr><td> Fantasmagórico </td></tr>
+        <tr><td> Fortificado </td></tr>
+        <tr><td> Gélido </td></tr>
+        <tr><td> Guardião </td></tr>
+        <tr><td> Hipnótico </td></tr>
+        <tr><td> Ilusório </td></tr>
+        <tr><td> Incandescente </td></tr>
+        <tr><td> Invulnerável </td></tr>
+        <tr><td> Opaco </td></tr>
+        <tr><td> Protetor </td></tr>
+        <tr><td> Refletor </td></tr>
+        <tr><td> Relampejante </td></tr>
+        <tr><td> Reluzente </td></tr>
+        <tr><td> Sombrio </td></tr>
+        <tr><td> Zeloso </td></tr>
+        <tr><td> Escudo específico </td></tr>
+        <tr><td> Abissal (heróis)</td></tr>
+        <tr><td> Anulador (heróis)</td></tr>
+        <tr><td> Arbóreo (heróis)</td></tr>
+        <tr><td> Astuto (heróis)</td></tr>
+        <tr><td> Égide (heróis)</td></tr>
+        <tr><td> Esmérico (heróis)</td></tr>
+        <tr><td> Estígio (heróis)</td></tr>
+        <tr><td> Etéreo (heróis)</td></tr>
+        <tr><td> Geomâtico (heróis)</td></tr>
+        <tr><td> Luminescente (heróis)</td></tr>
+        <tr><td> Prístino (heróis)</td></tr>
+        <tr><td> Purificador (heróis)</td></tr>
+        <tr><td> Reanimador (heróis)</td></tr>
+        <tr><td> Replicante (heróis)</td></tr>
+        <tr><td> Resiliente (heróis)</td></tr>
+        <tr><td> Vórtice (heróis)</td></tr>
+
+        </table> 
+
+        <table id="tb-armadura(EC)">
+        <tr><td> Abascanto </td></tr>
+        <tr><td> Abençoado </td></tr>
+        <tr><td> Acrobático </td></tr>
+        <tr><td> Alado </td></tr>
+        <tr><td> Assustador </td></tr>
+        <tr><td> Cáutisca </td></tr>
+        <tr><td> Defensor </td></tr>
+        <tr><td> Escorregadio </td></tr>
+        <tr><td> Fantasmagórico </td></tr>
+        <tr><td> Fortificado </td></tr>
+        <tr><td> Gélido </td></tr>
+        <tr><td> Guardião </td></tr>
+        <tr><td> Hipnótico </td></tr>
+        <tr><td> Ilusório </td></tr>
+        <tr><td> Incandescente </td></tr>
+        <tr><td> Invulnerável </td></tr>
+        <tr><td> Opaco </td></tr>
+        <tr><td> Protetor </td></tr>
+        <tr><td> Refletor </td></tr>
+        <tr><td> Relampejante </td></tr>
+        <tr><td> Reluzente </td></tr>
+        <tr><td> Sombrio </td></tr>
+        <tr><td> Zeloso </td></tr>
+        <tr><td> Armadura específica </td></tr>
+        <tr><td> Abissal (heróis)</td></tr>
+        <tr><td> Ancorada (heróis)</td></tr>
+        <tr><td> Anulador (heróis)</td></tr>
+        <tr><td> Arbóreo (heróis)</td></tr>
+        <tr><td> Astuto (heróis)</td></tr>
+        <tr><td> Densa (heróis)</td></tr>
+        <tr><td> Égide (heróis)</td></tr>
+        <tr><td> Enraizada (heróis)</td></tr>
+        <tr><td> Esmérico (heróis)</td></tr>
+        <tr><td> Estígio (heróis)</td></tr>
+        <tr><td> Etéreo (heróis)</td></tr>
+        <tr><td> Geomâtico (heróis)</td></tr>
+        <tr><td> Ligeira (heróis)</td></tr>
+        <tr><td> Luminescente (heróis)</td></tr>
+        <tr><td> Prístino (heróis)</td></tr>
+        <tr><td> Purificador (heróis)</td></tr>
+        <tr><td> Reanimador (heróis)</td></tr>
+        <tr><td> Replicante (heróis)</td></tr>
+        <tr><td> Resiliente (heróis)</td></tr>
+        <tr><td> Vórtice (heróis)</td></tr>
+
+        </table> 
+
+        <table id="tb-esoterico(EC)">
+        <tr><td> Abafador (heróis) </td></tr>
+        <tr><td> Bélico (heróis) </td></tr>
+        <tr><td> Caridoso (heróis) </td></tr>
+        <tr><td> Chocante (heróis) </td></tr>
+        <tr><td> Clemente (heróis) </td></tr>
+        <tr><td> Contido (heróis) </td></tr>
+        <tr><td> Embusteiro (heróis) </td></tr>
+        <tr><td> Emergencial (heróis) </td></tr>
+        <tr><td> Encadeado (heróis) </td></tr>
+        <tr><td> Escultor (heróis) </td></tr>
+        <tr><td> frugal (heróis) </td></tr>
+        <tr><td> Glacial (heróis) </td></tr>
+        <tr><td> Imperioso (heróis) </td></tr>
+        <tr><td> Implacável (heróis) </td></tr>
+        <tr><td> Incriminador (heróis) </td></tr>
+        <tr><td> Inflámevel (heróis) </td></tr>
+        <tr><td> Inquisidor (heróis) </td></tr>
+        <tr><td> Insistente (heróis) </td></tr>
+        <tr><td> Khalmyrita (heróis) </td></tr>
+        <tr><td> Majestoso (heróis) </td></tr>
+        <tr><td> Nímbico (heróis) </td></tr>
+        <tr><td> Pulverizante (heróis) </td></tr>
+        <tr><td> Retaliador (heróis) </td></tr>
+        <tr><td> Sanguessuga (heróis) </td></tr>
+        <tr><td> Traiçoeiro (heróis) </td></tr>
+        <tr><td> Verdugo (heróis) </td></tr>
+        <tr><td> esotérico específico (heróis) </td></tr>
+        
+
+        </table> 
+
+        <table id="tb-acessorio(EC)">
+        <tr><td> Aconchegante (heróis) </td></tr>
+        <tr><td> Ajudante (heróis) </td></tr>
+        <tr><td> Autoritário (heróis) </td></tr>
+        <tr><td> Compacto (heróis) </td></tr>
+        <tr><td> Imaculado (heróis) </td></tr>
+        <tr><td> Insinuante (heróis) </td></tr>
+        <tr><td> Ligeiro (heróis) </td></tr>
+        <tr><td> Prontidão (heróis) </td></tr>
+        
+        </table> 
+    </div>
+
+    <div> <!-- amaldiçoados -->
+
+    <table id="tb-arma(MD)">
+        <tr><td> Acalentadora (heróis)</td></tr>
+        <tr><td> Avarenta (heróis)</td></tr>
+        <tr><td> Bailarina (heróis)</td></tr>
+        <tr><td> Carente (heróis)</td></tr>
+        <tr><td> Frustrante (heróis)</td></tr>
+        <tr><td> Hesitante (heróis)</td></tr>
+        <tr><td> Indecisa (heróis)</td></tr>
+        <tr><td> Isenta (heróis)</td></tr>
+        <tr><td> Mendicante (heróis)</td></tr>
+        <tr><td> Preguiçosa (heróis)</td></tr>
+        <tr><td> Pró-Criatura (heróis)</td></tr>
+        <tr><td> Pueril/Idosa (heróis)</td></tr>
+        <tr><td> Temerária (heróis)</td></tr>
+        <tr><td> Trágica (heróis)</td></tr>
+        <tr><td> Vaidosa (heróis)</td></tr>
+        <tr><td>  (heróis)</td></tr>
+
+    </table>
+
+    <table id="tb-resto(MD)">
+        <tr><td> Amargo (heróis)</td></tr>
+        <tr><td> Antipático (heróis)</td></tr>
+        <tr><td> Carente (heróis)</td></tr>
+        <tr><td> Cético (heróis)</td></tr>
+        <tr><td> Conspurcador (heróis)</td></tr>
+        <tr><td> Desastrado (heróis)</td></tr>
+        <tr><td> Desengonçado (heróis)</td></tr>
+        <tr><td> Desleixado (heróis)</td></tr>
+        <tr><td> Do Contra (heróis)</td></tr>
+        <tr><td> Esfomeado (heróis)</td></tr>
+        <tr><td> Exaustivo (heróis)</td></tr>
+        <tr><td> Fotofóbico (heróis)</td></tr>
+        <tr><td> Ignorante (heróis)</td></tr>
+        <tr><td> Maroto (heróis)</td></tr>
+        <tr><td> Modesto (heróis)</td></tr>
+        <tr><td> Perdulário (heróis)</td></tr>
+        <tr><td> Surrupiado (heróis)</td></tr>
+
+    </table>
+
+    </div>
+
+    <div> <!-- específicos -->
+
+    <table id="tb-arma(SP)">
+        <tr><td> Azagaia dos relâmpagos </td></tr>
+        <tr><td> Espada baronial</td></tr>
+        <tr><td> Lâmina da luz </td></tr>
+        <tr><td> Lança animalesca </td></tr>
+        <tr><td> Maça do terror </td></tr>
+        <tr><td> Florete fugaz </td></tr>
+        <tr><td> Cajado da destruição </td></tr>
+        <tr><td> Cajado da vida </td></tr>
+        <tr><td> Machado silvestre </td></tr>
+        <tr><td> Martelo de Doherim </td></tr>
+        <tr><td> Arco do poder </td></tr>
+        <tr><td> Língua do deserto </td></tr>
+        <tr><td> Besta explosiva </td></tr>
+        <tr><td> Punhal sszzaazita </td></tr>
+        <tr><td> Espada sortuda </td></tr>
+        <tr><td> Avalanche </td></tr>
+        <tr><td> Cajado do poder </td></tr>
+        <tr><td> Vingadora sagrada </td></tr>
+        <tr><td> Pistola demoníaca (ameaças)</td></tr>
+        <tr><td> Uyzrrak Da’ukthra (ameaças)</td></tr>
+        <tr><td> Adaga da bruma (heróis)</td></tr>
+        <tr><td> Arco das sombras (heróis)</td></tr>
+        <tr><td> Arco do crepúsculo (heróis)</td></tr>
+        <tr><td> Azagaia fantasma (heróis)</td></tr>
+        <tr><td> Besta estelar (heróis)</td></tr>
+        <tr><td> Clava de lava (heróis)</td></tr>
+        <tr><td> Espada da tempestade (heróis)</td></tr>
+        <tr><td> Espada do guardião (heróis)</td></tr>
+        <tr><td> Espada solar (heróis)</td></tr>
+        <tr><td> Florete do vendaval (heróis)</td></tr>
+        <tr><td> Lança da fênix (heróis)</td></tr>
+        <tr><td> Machado da natureza (heróis)</td></tr>
+        <tr><td> Machado do abismo (heróis)</td></tr>
+        <tr><td> Machado do vulcão (heróis)</td></tr>
+        <tr><td> Martelo da terra (heróis)</td></tr>
+        <tr><td> Martelo do titã (heróis)</td></tr>
+        <tr><td> Punhal das profundezas (heróis)</td></tr>
+        <tr><td> Cajado das matas (deuses)</td></tr>
+        <tr><td> Machado da bravura (deuses)</td></tr>
+        <tr><td> Alfange dourado (deuses)</td></tr>
+        <tr><td> Cimitarra solar (deuses)</td></tr>
+        <tr><td> Adaga sorrateira (deuses)</td></tr>
+        <tr><td> Lança da dominação (deuses)</td></tr>
+        <tr><td> Espada monástica (deuses)</td></tr>
+        <tr><td> Alabarda da coragem (deuses)</td></tr>
+        <tr><td> Katana da determinação (deuses)</td></tr>
+        <tr><td> Maça monstruosa (deuses)</td></tr>
+        <tr><td> Alguma coisa de Nimb (deuses)</td></tr>
+        <tr><td> Tridente Aquoso (deuses)</td></tr>
+        <tr><td> Adaga ofídica (deuses)</td></tr>
+        <tr><td> Bordão sabichão (deuses)</td></tr>
+        <tr><td> Machado lamnoriano (deuses)</td></tr>
+        <tr><td> Espada imaculada (deuses)</td></tr>
+        <tr><td> Mangual aventureiro (deuses)</td></tr>
+        
+    </table>
+
+    <table id="tb-escudo(SP)">
+        <tr><td> Escudo de Azgher </td></tr>
+        <tr><td> Escudo do conjurador </td></tr>
+        <tr><td> Escudo do Eclipse </td></tr>
+        <tr><td> Escudo Espinhoso </td></tr>
+        <tr><td> Escudo do Leão </td></tr>
+        <tr><td> Escudo da luz estelar (heróis)</td></tr>
+        <tr><td> Escudo da ira vulcânica (heróis)</td></tr>
+        <tr><td> Escudo da Natureza Viva (heróis)</td></tr>
+        <tr><td> Escudo do Grifo (heróis)</td></tr>
+        <tr><td> Escudo do Trovão (heróis)</td></tr>
+
+    </table>
+
+    <table id="tb-armadura(SP)">
+        <tr><td> Armadura da luz </td></tr>
+        <tr><td> Baluarte anão </td></tr>
+        <tr><td> Carapaça demoníaca </td></tr>
+        <tr><td> Cota élfica </td></tr>
+        <tr><td> Couraça do comando </td></tr>
+        <tr><td> Couro de monstro </td></tr>
+        <tr><td> Loriga do centurião </td></tr>
+        <tr><td> Manto da noite </td></tr>
+        <tr><td> Grilhão de descrença (ameaças)</td></tr>
+        <tr><td> Armadura das sombras profundas (heróis)</td></tr>
+        <tr><td> Armadura do dragão ancião (heróis)</td></tr>
+        <tr><td> Armadura do inverno perene (heróis)</td></tr>
+        <tr><td> Cota da serpente marinha (heróis)</td></tr>
+        <tr><td> Couraça do guardião celeste (heróis)</td></tr>
+        <tr><td> Armadura do julgamento (deuses)</td></tr>
+
+    </table>
+
+    <table id="tb-esoterico(SP)">
+        <tr><td> Cajado das marés (heróis)</td></tr>
+        <tr><td> Cálice sagrado (heróis)</td></tr>
+        <tr><td> Relógio do arcanista (heróis)</td></tr>
+        <tr><td> Varinha milenar (heróis)</td></tr>
+
+    </table>
+
+    <table id="tb-acessorio(MN)">
+        <tr><td> Anel do sustento </td></tr>
+        <tr><td> Bainha mágica </td></tr>
+        <tr><td> Corda da escalada </td></tr>
+        <tr><td> Ferraduras da velocidade </td></tr>
+        <tr><td> Garrafa da fumaça eterna </td></tr>
+        <tr><td> Gema da luminosidade </td></tr>
+        <tr><td> Manto élfico </td></tr>
+        <tr><td> Mochila de carga </td></tr>
+        <tr><td> Brincos da sagacidade </td></tr>
+        <tr><td> Luvas da delicadeza </td></tr>
+        <tr><td> Manoplas da força do ogro </td></tr>
+        <tr><td> Manto da resistência </td></tr>
+        <tr><td> Manto do fascínio </td></tr>
+        <tr><td> Pingente da sensatez </td></tr>
+        <tr><td> Torque do vigor </td></tr>
+        <tr><td> Chapéu do disfarce </td></tr>
+        <tr><td> Flauta fantasma </td></tr>
+        <tr><td> Lanterna da revelação </td></tr>
+        <tr><td> Anel da proteção </td></tr>
+        <tr><td> Anel do escudo mental </td></tr>
+        <tr><td> Pingente da saúde </td></tr>
+        <tr><td> Algibeira mordedora (heróis)</td></tr>
+        <tr><td> Algibeira provedora (heróis)</td></tr>
+        <tr><td> Amuleto da visão etérea (heróis)</td></tr>
+        <tr><td> Anel da proteção mental (heróis)</td></tr>
+        <tr><td> Berço das fadas (heróis)</td></tr>
+        <tr><td> Chapéu dos truques infinitos (heróis)</td></tr>
+        <tr><td> Cinto da leveza graciosa (heróis)</td></tr>
+        <tr><td> Cinturão do trobo (heróis)</td></tr>
+        <tr><td> Corda da resignação (heróis)</td></tr>
+        <tr><td> Cristal da voz silenciosa (heróis)</td></tr>
+        <tr><td> Cristal do tempo célere (heróis)</td></tr>
+        <tr><td> Elixir da eternidade (heróis)</td></tr>
+        <tr><td> Elixir da mente dividida (heróis)</td></tr>
+        <tr><td> Gaiola dos arcanos (heróis)</td></tr>
+        <tr><td> Lâmpada da ilusão impecável (heróis)</td></tr>
+        <tr><td> Monóculo da franqueza (heróis)</td></tr>
+        <tr><td> Ocarina da melodia distante (heróis)</td></tr>
+        <tr><td> Olhos do corvo (heróis)</td></tr>
+        <tr><td> Papiro das estrelas (heróis)</td></tr>
+        <tr><td> Pena da criação (heróis)</td></tr>
+        <tr><td> Pergaminho da verdade cósmica (heróis)</td></tr>
+        <tr><td> Pérola da nulificação (heróis)</td></tr>
+        <tr><td> Saco dos ventos silenciosos (heróis)</td></tr>
+        <tr><td> Coroa de flores (deuses)</td></tr>
+        <tr><td> Jarro das profundezas (deuses)</td></tr>
+        <tr><td> Escrivaninha consagrada (deuses)</td></tr>
+
+    </table>
+
+    <table id="tb-acessorio(MED)">
+        <tr><td> Anel de telecinesia </td></tr>
+        <tr><td> Bola de cristal </td></tr>
+        <tr><td> Caveira maldita </td></tr>
+        <tr><td> Botas aladas </td></tr>
+        <tr><td> Braceletes de bronze </td></tr>
+        <tr><td> Anel da energia </td></tr>
+        <tr><td> Anel da vitalidade </td></tr>
+        <tr><td> Anel de invisibilidade </td></tr>
+        <tr><td> Braçadeiras do arqueiro </td></tr>
+        <tr><td> Brincos de Marah </td></tr>
+        <tr><td> Faixas do pugilista </td></tr>
+        <tr><td> Manto da aranha </td></tr>
+        <tr><td> Vassoura voadora </td></tr>
+        <tr><td> Símbolo abençoado </td></tr>
+        <tr><td> Amuleto da robustez </td></tr>
+        <tr><td> Botas velozes </td></tr>
+        <tr><td> Cinto da força do gigante </td></tr>
+        <tr><td> Coroa majestosa </td></tr>
+        <tr><td> Estola da serenidade </td></tr>
+        <tr><td> Manto do morcego </td></tr>
+        <tr><td> Pulseiras da celeridade </td></tr>
+        <tr><td> Tiara da sapiência </td></tr>
+        <tr><td> Pilão conspurcado (ameaças)</td></tr>
+        <tr><td> Ampulheta da harmonia temporal (heróis)</td></tr>
+        <tr><td> Amuleto do amparo (heróis)</td></tr>
+        <tr><td> Anel da beleza ilusória (heróis)</td></tr>
+        <tr><td> Anel do pacto oneroso  (heróis)</td></tr>
+        <tr><td> Bastão da grande harmonia (heróis)</td></tr>
+        <tr><td> Bastão do sonhador (heróis)</td></tr>
+        <tr><td> Botas do andarilho das sombras (heróis)</td></tr>
+        <tr><td> Bracelete do coração vivaz (heróis)</td></tr>
+        <tr><td> Caixa dos ecos perdidos (heróis)</td></tr>
+        <tr><td> Cálice das marés (heróis)</td></tr>
+        <tr><td> Capa nebulosa (heróis)</td></tr>
+        <tr><td> Cinto dos caminhos cruzados (heróis)</td></tr>
+        <tr><td> Colar da fúria monstruosa (heróis)</td></tr>
+        <tr><td> Colar da perseverança (heróis)</td></tr>
+        <tr><td> Colar do tirano (heróis)</td></tr>
+        <tr><td> Colar das bolas de fogo (heróis)</td></tr>
+        <tr><td> Coroa da floresta sussurrante (heróis)</td></tr>
+        <tr><td> Coroa da majestade distorcida (heróis)</td></tr>
+        <tr><td> Espelho da verdade (heróis)</td></tr>
+        <tr><td> Espelho do outro lado (heróis)</td></tr>
+        <tr><td> Frigideira do chef anão (heróis)</td></tr>
+        <tr><td> Gema da purificação (heróis)</td></tr>
+        <tr><td> Gema da santificação (heróis)</td></tr>
+        <tr><td> Instrumentos da celeridade (heróis)</td></tr>
+        <tr><td> Máscara da raposa (heróis)</td></tr>
+        <tr><td> Máscara do predador (heróis)</td></tr>
+        <tr><td> Óculos da revelação (heróis)</td></tr>
+        <tr><td> Pedra da passagem (heróis)</td></tr>
+        <tr><td> Pingente da dor partilhada (heróis)</td></tr>
+        <tr><td> Sandálias de Valkaria (heróis)</td></tr>
+        <tr><td> Cubo armadilha (deuses)</td></tr>
+        <tr><td> Caldeirão da vida (deuses)</td></tr>
+        <tr><td> Instrumento da alegria (deuses)</td></tr>
+        <tr><td> Véu diáfano (deuses)</td></tr>
+        <tr><td> Colar de Presas (deuses)</td></tr>
+        <tr><td> Vestido noturno (deuses)</td></tr>
+        <tr><td> Pira póstera (deuses)</td></tr>
+        <tr><td> Botas inquietas (deuses)</td></tr>
+        <tr><td> Argolas místicas (deuses)</td></tr>
+        <tr><td> Varinha da generosidade (deuses)</td></tr>
+
+    </table>
+
+    <table id="tb-acessorio(MA)">
+        <tr><td> Elmo do teletransporte </td></tr>
+        <tr><td> Gema da telepatia </td></tr>
+        <tr><td> Gema elemental </td></tr>
+        <tr><td> Manual da saúde corporal </td></tr>
+        <tr><td> Manual do bom exercício </td></tr>
+        <tr><td> Manual dos movimentos precisos </td></tr>
+        <tr><td> Medalhão de Lena  </td></tr>
+        <tr><td> Tomo da compreensão </td></tr>
+        <tr><td> Tomo da liderança e influência </td></tr>
+        <tr><td> Tomo dos grandes pensamentos </td></tr>
+        <tr><td> Anel refletor </td></tr>
+        <tr><td> Cinto do campeão </td></tr>
+        <tr><td> Colar guardião </td></tr>
+        <tr><td> Estatueta animista </td></tr>
+        <tr><td> Anel da liberdade </td></tr>
+        <tr><td> Tapete voador </td></tr>
+        <tr><td> Braceletes de ouro </td></tr>
+        <tr><td> Espelho da oposição </td></tr>
+        <tr><td> Robe do arquimago </td></tr>
+        <tr><td> Orbe das tempestades </td></tr>
+        <tr><td> Anel da regeneração </td></tr>
+        <tr><td> Espelho do aprisionamento </td></tr>
+        <tr><td> Chifre de unicórnio (ameaças)</td></tr>
+        <tr><td> Fragmento de filactério (ameaças)</td></tr>
+        <tr><td> Anel da chama dançante (heróis)</td></tr>
+        <tr><td> Braçadeiras da força do colosso (heróis)</td></tr>
+        <tr><td> Braceletes da amizade intensa (heróis)</td></tr>
+        <tr><td> Chapéu pensador (heróis)</td></tr>
+        <tr><td> Chave dos planos (heróis)</td></tr>
+        <tr><td> Cinto da desmaterialização (heróis)</td></tr>
+        <tr><td> Cinto da flecha veloz (heróis)</td></tr>
+        <tr><td> Coração do inverno (heróis)</td></tr>
+        <tr><td> Gema da profanação (heróis)</td></tr>
+        <tr><td> Tomo da técnica definitiva (heróis)</td></tr>
+        <tr><td> Tomo dos companheiros (heróis)</td></tr>
+        <tr><td> Cilício vivo (deuses)</td></tr>
+        <tr><td> Coração corrompido (deuses)</td></tr>
+        <tr><td> Tapeçaria da guerra (deuses)</td></tr>
+        <tr><td> Ossos dracônicos (deuses)</td></tr>
+
+    </table>
+    
+    </div>
+
+    <div> <!-- gerais -->
+
+    <table id="tb-equipamento">
+        <tr><td> Água benta </td></tr>
+        <tr><td> Algemas </td></tr>
+        <tr><td> Arpéu </td></tr>
+        <tr><td> Bandoleira de poções </td></tr>
+        <tr><td> Barraca </td></tr>
+        <tr><td> Corda </td></tr>
+        <tr><td> Espelho </td></tr>
+        <tr><td> Lampião </td></tr>
+        <tr><td> Mochila </td></tr>
+        <tr><td> Mochila de aventureiro </td></tr>
+        <tr><td> Óleo </td></tr>
+        <tr><td> Organizador de pergaminhos </td></tr>
+        <tr><td> Pé de cabra </td></tr>
+        <tr><td> Saco de dormir </td></tr>
+        <tr><td> Símbolo sagrado </td></tr>
+        <tr><td> Tocha </td></tr>
+        <tr><td> Vara de madeira </td></tr>
+        <tr><td> Caixa de voz (ameaças)</td></tr>
+        <tr><td> Corda de teia (ameaças)</td></tr>
+        <tr><td> Dente de wisphago (ameaças)</td></tr>
+        <tr><td> Ábaco (heróis)</td></tr>
+        <tr><td> Ampulheta (heróis)</td></tr>
+        <tr><td> Aparelho de chá (heróis)</td></tr>
+        <tr><td> Astrolábio (heróis)</td></tr>
+        <tr><td> Armação para mochila (heróis)</td></tr>
+        <tr><td> Asas do texugo (heróis)</td></tr>
+        <tr><td> Bainha adornada (heróis)</td></tr>
+        <tr><td> Bússola (heróis)</td></tr>
+        <tr><td> Cinto de utilidades (heróis)</td></tr>
+        <tr><td> Dente falso (heróis)</td></tr>
+        <tr><td> Diagrama anatômico (heróis)</td></tr>
+        <tr><td> Espelho refletor (heróis)</td></tr>
+        <tr><td> Estetoscópio (heróis)</td></tr>
+        <tr><td> Estrepes (heróis)</td></tr>
+        <tr><td> Lampião de foco (heróis)</td></tr>
+        <tr><td> Leque (heróis)</td></tr>
+        <tr><td> Livro de métodos anti-Nimb (heróis)</td></tr>
+        <tr><td> Lupa (heróis)</td></tr>
+        <tr><td> Mapa (heróis)</td></tr>
+        <tr><td> Mecanismo de mola (heróis)</td></tr>
+        <tr><td> Mochila discreta (heróis)</td></tr>
+        <tr><td> Prancheta (heróis)</td></tr>
+        <tr><td> Sinete (heróis)</td></tr>
+        <tr><td> Água benta concentrada (deuses)</td></tr>
+        <tr><td> Amuleto de Khalmyr (deuses)</td></tr>  
+        <tr><td> Amuleto de Nimb (deuses)</td></tr>  
+        <tr><td> Apanhador de sonhos (deuses)</td></tr>  
+        <tr><td> Aspersório (deuses)</td></tr>  
+        <tr><td> Cajado de pastor (deuses)</td></tr>
+        <tr><td> Cálice consagrado (deuses)</td></tr>  
+        <tr><td> Colar do suplicante (deuses)</td></tr>  
+        <tr><td> Emblema religioso (deuses)</td></tr>  
+        <tr><td> Férula (deuses)</td></tr> 
+        <tr><td> Panfleto de aforismos (deuses)</td></tr>
+        <tr><td> Patuá (deuses)</td></tr>  
+        <tr><td> Texto sagrado (deuses)</td></tr>    
+
+    </table>    
+
+    <table id="tb-ferramenta">
+        <tr><td> Coleção de livros </td></tr>
+        <tr><td> Equipamento de viagem </td></tr>
+        <tr><td> Estojo de disfarces </td></tr>
+        <tr><td> Gazua </td></tr>
+        <tr><td> Instrumentos de ofício</td></tr>
+        <tr><td> Instrumento musical </td></tr>
+        <tr><td> Luneta </td></tr>
+        <tr><td> Maleta de medicamentos </td></tr>
+        <tr><td> Sela </td></tr>
+        <tr><td> Apito de caça (heróis)</td></tr>
+        <tr><td> Baralho marcado (heróis)</td></tr>
+        <tr><td> Espelho cirúrgico (heróis)</td></tr>
+        <tr><td> Estandarte (heróis)</td></tr>
+        <tr><td> Estandarte portátil (heróis)</td></tr>
+        <tr><td> Molde pré-fabricado (heróis)</td></tr>
+
+    </table> 
+
+    <table id="tb-instrumento">
+        <tr><td> Alaúde élfico </td></tr>
+        <tr><td> Flauta mística </td></tr>
+        <tr><td> Tambor das profundezas </td></tr>
+        <tr><td> Clarim deheoni (heróis)</td></tr>
+        <tr><td> Cítara heptatônica (heróis)</td></tr>
+        <tr><td> Cornamusa de Doherimm (heróis)</td></tr>
+        <tr><td> Flauta sar-allan (heróis)</td></tr>
+        <tr><td> Gaita de foles (heróis)</td></tr>
+        <tr><td> Lira de casco de tartaruga (heróis)</td></tr>
+        <tr><td> Marionetes (heróis)</td></tr>
+        <tr><td> Pandeiro das estradas (heróis)</td></tr>
+        <tr><td> Tamborete marcial  (heróis)</td></tr>
+        <tr><td> Trombeta tapistana (heróis)</td></tr>
+        <tr><td> Violino soprano (heróis)</td></tr>
+        <tr><td> Trombeta do cruzado (deuses)</td></tr>
+
+    </table>  
+
+    <table id="tb-vestuario">
+        <tr><td> Andrajos de aldeão </td></tr>
+        <tr><td> Bandana </td></tr>
+        <tr><td> Botas reforçadas </td></tr>
+        <tr><td> Camisa bufante </td></tr>
+        <tr><td> Capa esvoaçante </td></tr>
+        <tr><td> Capa pesada </td></tr>
+        <tr><td> Casaco longo </td></tr>
+        <tr><td> Chapéu arcano </td></tr>
+        <tr><td> Enfeite de elmo </td></tr>
+        <tr><td> Farrapos de ermitão </td></tr>
+        <tr><td> Gorro de ervas </td></tr>
+        <tr><td> Luva de pelica </td></tr>
+        <tr><td> Manto camuflado </td></tr>
+        <tr><td> Manto eclesiástico </td></tr>
+        <tr><td> Robe místico </td></tr>
+        <tr><td> Sapatos de camurça </td></tr>
+        <tr><td> Tabardo </td></tr>
+        <tr><td> Traje da corte </td></tr>
+        <tr><td> Traje de viajante </td></tr>
+        <tr><td> Veste de seda </td></tr>
+        <tr><td> Garra feroz (ameaças)</td></tr>
+        <tr><td> Manto do mantor (ameaças)</td></tr>
+        <tr><td> Manto pesado (ameaças)</td></tr>
+        <tr><td> Sombreiro (ameaças)</td></tr>
+        <tr><td> Traje selako (ameaças)</td></tr>
+        <tr><td> Avental de forja (heróis)</td></tr>
+        <tr><td> Camisolão (heróis)</td></tr>
+        <tr><td> Capa com dragonas (heróis)</td></tr>
+        <tr><td> Casaca de apetrechos (heróis)</td></tr>
+        <tr><td> Chapéu emplumado (heróis)</td></tr>
+        <tr><td> Elmo leve (heróis)</td></tr>
+        <tr><td> Elmo pesado (heróis)</td></tr>
+        <tr><td> Jaqueta de couro (heróis)</td></tr>
+        <tr><td> Luva de falcoaria (heróis)</td></tr>
+        <tr><td> Luva magnética (heróis)</td></tr>
+        <tr><td> Máscara bucal (heróis)</td></tr>
+        <tr><td> Máscara completa (heróis)</td></tr>
+        <tr><td> Máscara de baile (heróis)</td></tr>
+        <tr><td> Máscara de soldador (heróis)</td></tr>
+        <tr><td> Monóculo (heróis)</td></tr>
+        <tr><td> Óculos de aeronauta (heróis)</td></tr>
+        <tr><td> Palmar (heróis)</td></tr>
+        <tr><td> Peruca (heróis)</td></tr>
+        <tr><td> Rondel (heróis)</td></tr>
+        <tr><td> Roupão elegante (heróis)</td></tr>
+        <tr><td> Rufo (heróis)</td></tr>
+        <tr><td> Sapatos confortáveis (heróis)</td></tr>
+        <tr><td> Sapatos de salto alto (heróis)</td></tr>
+        <tr><td> Veste acolchoada (heróis)</td></tr>
+        <tr><td> Anel eclesiástico (deuses)</td></tr>
+        <tr><td> Carcaça do predador primal (deuses)</td></tr>
+        <tr><td> Garras do predador primal (deuses)</td></tr>
+        <tr><td> Hábito monástico (deuses)</td></tr>
+        <tr><td> Hábito sacerdotal (deuses)</td></tr>
+        <tr><td> Manto de alto sacerdote (deuses)</td></tr>
+        <tr><td> Penas do predador primal (deuses)</td></tr>
+        <tr><td> Piercing de umbigo (deuses)</td></tr>
+        <tr><td> Sandálias (deuses)</td></tr>
+        <tr><td> Túnica do Virtuoso (deuses)</td></tr>
+
+    </table> 
+    
+    <table id="tb-alquimico">
+        <tr><td> Ácido </td></tr>
+        <tr><td> Bálsamo restaurador </td></tr>
+        <tr><td> Bomba </td></tr>
+        <tr><td> Cosmético </td></tr>
+        <tr><td> Elixir do amor </td></tr>
+        <tr><td> Essência de mana </td></tr>
+        <tr><td> Fogo alquímico </td></tr>
+        <tr><td> Pó do desaparecimento </td></tr>
+        <tr><td> Baga-de-fogo </td></tr>
+        <tr><td> Dente-de-dragão </td></tr>
+        <tr><td> Essência abissal </td></tr>
+        <tr><td> Líquen lilás </td></tr>
+        <tr><td> Musgo púrpura </td></tr>
+        <tr><td> Ossos de monstro </td></tr>
+        <tr><td> Pó de cristal </td></tr>
+        <tr><td> Pó de giz </td></tr>
+        <tr><td> Ramo verdejante </td></tr>
+        <tr><td> Saco de sal </td></tr>
+        <tr><td> Seixo de âmbar </td></tr>
+        <tr><td> Terra de cemitério </td></tr>
+        <tr><td> Beladona </td></tr>
+        <tr><td> Bruma sonolenta </td></tr>
+        <tr><td> Cicuta </td></tr>
+        <tr><td> Essência de sombra </td></tr>
+        <tr><td> Névoa tóxica </td></tr>
+        <tr><td> Peçonha comum </td></tr>
+        <tr><td> Peçonha concentrada </td></tr>
+        <tr><td> Peçonha potente </td></tr>
+        <tr><td> Pó de lich </td></tr>
+        <tr><td> Riso de Nimb </td></tr>
+        <tr><td> Bálsamo de drogadora (ameaças)</td></tr>
+        <tr><td> Bomba de fumaça (ameaças)</td></tr>
+        <tr><td> Elixir quimérico (ameaças)</td></tr>
+        <tr><td> Éter elemental (ameaças)</td></tr>
+        <tr><td> Isca putrefata (ameaças)</td></tr>
+        <tr><td> Lágrima pétrea (ameaças)</td></tr>
+        <tr><td> Óleo de baleia (ameaças)</td></tr>
+        <tr><td> Óleo de besouro (ameaças)</td></tr>
+        <tr><td> Pó azul (ameaças)</td></tr>
+        <tr><td> Corrosivo mineral (ameaças)</td></tr>
+        <tr><td> Gelo extremo (ameaças)</td></tr>
+        <tr><td> Pedaço de língua (ameaças)</td></tr>
+        <tr><td>  Raio cristalizado (ameaças)</td></tr>
+        <tr><td> Esporos de cogumelo (ameaças)</td></tr>
+        <tr><td> Peçonha anciã (ameaças)</td></tr>
+        <tr><td> Peçonha irritante (ameaças)</td></tr>
+        <tr><td> Veneno batráquio (ameaças)</td></tr>
+        <tr><td> Ácido concentrado (heróis)</td></tr>
+        <tr><td> Análgésico (heróis)</td></tr>
+        <tr><td> Estalinho Gury (heróis)</td></tr>
+        <tr><td> Extrato de gelo eterno (heróis)</td></tr>
+        <tr><td> Extrato de oxxdon (heróis)</td></tr>
+        <tr><td> Frasco abissal (heróis)</td></tr>
+        <tr><td> Pó de cinza (heróis)</td></tr>
+        <tr><td> Pó do aparecimento (heróis)</td></tr>
+        <tr><td> Visco persistente (heróis)</td></tr>
+        <tr><td> Cristal reflexivo (heróis)</td></tr>
+        <tr><td> Essência fantasmal (heróis)</td></tr>
+        <tr><td> Noz saltadora (heróis)</td></tr>
+        <tr><td> Presa de Hyninn (heróis)</td></tr>
+        <tr><td> Bolor hemorrágico (heróis)</td></tr>
+        <tr><td> Fumaça onírica (heróis)</td></tr>
+        <tr><td> Gás moroso (heróis)</td></tr>
+        <tr><td> Seiva necrótica (heróis)</td></tr>
+        <tr><td> Granada redentora (deuses)</td></tr>
+        <tr><td> Santa granada de mão (deuses)</td></tr>
+        <tr><td> Incenso (deuses)</td></tr>
+        <tr><td> Lucidílico (deuses)</td></tr>
+        <tr><td> Água benta (deuses)</td></tr>
+        <tr><td> Favo de mel (deuses)</td></tr>
+        <tr><td> Fitilho consagrado (deuses)</td></tr>
+        <tr><td> Flor de orlyn (deuses)</td></tr>
+        <tr><td>  Lantejoula (deuses)</td></tr>
+        <tr><td> Frasco de luz (deuses)</td></tr>
+        <tr><td> Pena de anjo (deuses)</td></tr>
+        <tr><td> Pedra de sombras (deuses)</td></tr>
+        <tr><td> Vela eclesiástica (deuses)</td></tr>
+
+    </table>  
+
+    <table id="tb-prato">
+        <tr><td> Batata valkariana </td></tr>
+        <tr><td> Gorad quente </td></tr>
+        <tr><td> Macarrão de Yuvalin </td></tr>
+        <tr><td> Prato do aventureiro </td></tr>
+        <tr><td> Ração de viagem </td></tr>
+        <tr><td> Refeição comum </td></tr>
+        <tr><td> Sopa de peixe </td></tr>
+        <tr><td> Algravia (ameaças)</td></tr>
+        <tr><td> Banquete de canceronte (ameaças)</td></tr>
+        <tr><td> Coc-au-triz (ameaças)</td></tr>
+        <tr><td> Cozido de serpe (ameaças)</td></tr>
+        <tr><td> Gorlogg ensopado (ameaças)</td></tr>
+        <tr><td> Omelete monstruosa (ameaças)</td></tr>
+        <tr><td> Sashimi de kraken (ameaças)</td></tr>
+        <tr><td> Baga celeste cozida (heróis)</td></tr>
+        <tr><td> Cozido de pimenta (heróis)</td></tr>
+        <tr><td> Manjar de sombras (heróis)</td></tr>
+        <tr><td> Assado de carnes (heróis)</td></tr>
+        <tr><td> Balinhas (heróis)</td></tr>
+        <tr><td> Banquete dos heróis (heróis)</td></tr>
+        <tr><td> Bolo de cenoura (heróis)</td></tr>
+        <tr><td> Bolo do Panteão (heróis)</td></tr>
+        <tr><td> Ensopad reforçado (heróis)</td></tr>
+        <tr><td> Estrogonofe (heróis)</td></tr>
+        <tr><td> Futomaki (heróis)</td></tr>
+        <tr><td> Gorvelã (heróis)</td></tr>
+        <tr><td> Javali do Bosque Enevoado (heróis)</td></tr>
+        <tr><td> Manjar dos titãs (heróis)</td></tr>
+        <tr><td> Ovo de monstro frito (heróis)</td></tr>
+        <tr><td> Pão de queijo (heróis)</td></tr>
+        <tr><td> Pavão celestial (heróis)</td></tr>
+        <tr><td> Pizza (heróis)</td></tr>
+        <tr><td> Porco deheoni (heróis)</td></tr>
+        <tr><td> Salada de Salistick (heróis)</td></tr>
+        <tr><td> Salada élfica (heróis)</td></tr>
+        <tr><td> Salada imperial (heróis)</td></tr>
+        <tr><td> Sashimi (heróis)</td></tr>
+        <tr><td> Sopa de cogumelos (heróis)</td></tr>
+        <tr><td> Torta de maçã (heróis)</td></tr>
+        <tr><td> Abraço da noite (deuses)</td></tr>
+        <tr><td>  Assado de entranhas (deuses)</td></tr>
+        <tr><td> Bênção dos mares (deuses)</td></tr>
+        <tr><td> Bolinho de jade (deuses)</td></tr>
+        <tr><td> Bombas de saber (deuses)</td></tr>
+        <tr><td> Caldo de Lena (deuses)</td></tr>
+        <tr><td> Coragem de sangue (deuses)</td></tr>
+        <tr><td> Deleite mágico (deuses)</td></tr>
+        <tr><td> Frescor de Nimb (deuses)</td></tr>
+        <tr><td> Joia do deserto (deuses)</td></tr>
+        <tr><td> Justos de Khalmyr (deuses)</td></tr>
+        <tr><td> Justos virtuosos (deuses)</td></tr>
+        <tr><td> Manjar da paz (deuses)</td></tr>
+        <tr><td> Ouro de dragão (deuses)</td></tr>
+        <tr><td> Ovos de raposa (deuses)</td></tr>
+        <tr><td> Pão de Thwor (deuses)</td></tr>
+        <tr><td> Presente da terra (deuses)</td></tr>
+        <tr><td> Renascer gentil (deuses)</td></tr>
+        <tr><td> Suflê rubro (deuses)</td></tr>
+        <tr><td> Tesouro de Valkaria (deuses)</td></tr>
+
+    </table>  
+
+    <table id="tb-bebida">
+        <tr><td> Baba de troll (heróis)</td></tr>
+        <tr><td> Barba queimada (heróis)</td></tr>
+        <tr><td> Cerveja deheoni (heróis)</td></tr>
+        <tr><td> Dilínio (heróis)</td></tr>
+        <tr><td> Grogue negro (heróis)</td></tr>
+        <tr><td> Grogue rubro (heróis)</td></tr>
+        <tr><td> Hidromel uivante (heróis)</td></tr>
+        <tr><td> Licor feérico (heróis)</td></tr>
+        <tr><td> Sidra ahleniense (heróis)</td></tr>
+        <tr><td> Vinho Pruss (heróis)</td></tr>
+        <tr><td> Vinho élfico (heróis)</td></tr>
+
+    </table>  
+    
+    </div>
+
+    <script src="tabelaFC.js"></script>
+
+</body>
+</html>
